@@ -16,7 +16,7 @@ spec:
           mountPath: /var/log
     - name: log-shipper
       image: busybox
-      command: ["sh","-c","while true; do cat /var/log/activity.log; sleep 10; done"]
+      command: ["sh","-c","tail -f /var/log/activity.log"]
       volumeMounts:
         - name: shared-logs
           mountPath: /var/log
